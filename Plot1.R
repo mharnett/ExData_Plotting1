@@ -1,0 +1,6 @@
+download.file("https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip","./powerfile.zip")
+unzip("./powerfile.zip")
+electricPower <- read.table("./household_power_consumption.txt", na.strings="?", sep=";", header=TRUE)
+png("./plot1.png", width=480, height=480)
+hist(electricPower$Global_active_power[electricPower$Date %in% c("2/1/2007","2/2/2007") ], main ="Global Active Power", xlab="Global Active Power (kilowatts)", col=2)
+dev.off()
